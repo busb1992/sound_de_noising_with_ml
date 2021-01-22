@@ -29,9 +29,9 @@ class DataConverter:
             curr_data, curr_samplerate = sf.read(path + curr_file)
             if self.samplerate is None and self.standard_len is None:
                 samplerate = curr_samplerate
-                standard_len = len(curr_data)
-            if samplerate == curr_samplerate and len(curr_data) >= standard_len:
-                list_of_files.append(curr_data[0:standard_len])
+                self.standard_len = len(curr_data)
+            if samplerate == curr_samplerate and len(curr_data) >= self.standard_len:
+                list_of_files.append(curr_data[0:self.standard_len])
         return list_of_files
 
     def _noise_signal_(self, files_to_noise):
