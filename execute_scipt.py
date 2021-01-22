@@ -9,10 +9,11 @@ from keras import regularizers
 do not forget to set working directory & have the basic folders
 '''
 
-# Data transform
+# vars
 wavelet_scales = scales=np.linspace(1, 110, 100)
-batch_size_ = 2
+batch_size_ = 32
 
+# Data transform
 data_conv = DataConverter(wavelet_scales)
 data_conv.load_audio_file_calc_wavelet_and_noised_wavelet()
 
